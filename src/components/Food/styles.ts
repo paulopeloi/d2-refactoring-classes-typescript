@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 interface isAvailableProps {
 	available: boolean;
@@ -16,11 +16,7 @@ export const Container = styled.div<isAvailableProps>`
     transition: 0.3s opacity;
     text-align: center;
 
-    ${props =>
-    !props.available &&
-    css`
-        opacity: 0.3;
-      `};
+		${(props) => !props.available ? 'opacity: 0.3;' : 'opacity: 100'}
 
     img {
       pointer-events: none;

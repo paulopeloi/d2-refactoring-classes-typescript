@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react';
 import api from '../../services/api';
 import { Header } from '../../components/Header';
 import { Food } from '../../components/Food';
-import ModalAddFood from '../../components/ModalAddFood';
-import ModalEditFood from '../../components/ModalEditFood';
+import { ModalAddFood } from '../../components/ModalAddFood';
+import { ModalEditFood } from '../../components/ModalEditFood';
 import { FoodsContainer } from './styles';
 
 interface iFood {
@@ -45,6 +45,7 @@ export function Dashboard() {
   }
 
   async function handleUpdateFood(food: iFood) {
+		console.log(food)
     try {
       const foodUpdated = await api.put(
         `/foods/${food.id}`,

@@ -20,7 +20,7 @@ interface FoodProps {
 }
 
 export function Food({ food, handleDelete, handleEditFood }: FoodProps) {
-	const [isAvailable, setIsAvailable] = useState(true);
+	const [isAvailable, setIsAvailable] = useState(food.available);
 
   async function toggleAvailable(foodUpdate: iFood){
     await api.put(`/foods/${foodUpdate.id}`, {
@@ -36,7 +36,7 @@ export function Food({ food, handleDelete, handleEditFood }: FoodProps) {
   }
 
     return (
-			<Container available={food.available}>
+			<Container available={isAvailable}>
 				<header>
 					<img src={food.image} alt={food.name} />
 				</header>
